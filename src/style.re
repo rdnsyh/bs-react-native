@@ -85,7 +85,6 @@ let arrayStyle = (key, value) => (key, Encode.array(value));
 
 let style = sarr => sarr |> UtilsRN.dictFromList |> to_style;
 
-
 /***
  * Layout Props
  */
@@ -328,7 +327,6 @@ let direction = v =>
     },
   );
 
-
 /***
  * Shadow Props
  */
@@ -485,7 +483,6 @@ module Transform = {
     );
 };
 
-
 /***
  * View Props
  */
@@ -563,7 +560,6 @@ let opacity = value => (
 );
 
 let elevation = floatStyle("elevation");
-
 
 /***
  * Text Props
@@ -734,7 +730,6 @@ type resizeMode =
   | Repeat
   | Center;
 
-
 /*** Image props */
 let resizeMode = v =>
   stringStyle(
@@ -754,3 +749,120 @@ let overlayColor = value => (
   "overlayColor",
   encode_string_interpolated(value),
 );
+
+/***
+ *  Web Props
+ */
+type listStyleType =
+  | Disc
+  | Circle
+  | Square
+  | Decimal
+  | Georgian
+  | CJKIdeographic
+  | Kannada
+  | None
+  | Inherit
+  | Initial
+  | Unset
+  | Custom(string);
+
+let listStyleType = v =>
+  stringStyle(
+    "listStyleType",
+    switch (v) {
+    | Disc => "disc"
+    | Circle => "circle"
+    | Square => "square"
+    | Decimal => "decimal"
+    | Georgian => "georgian"
+    | CJKIdeographic => "cjk-ideographic"
+    | Kannada => "kannada"
+    | None => "none"
+    | Inherit => "inherit"
+    | Initial => "initial"
+    | Unset => "unset"
+    | Custom(string) => string
+    },
+  );
+
+type cursor =
+  | Auto
+  | Default
+  | None
+  | ContextMenu
+  | Help
+  | Pointer
+  | Progress
+  | Wait
+  | Cell
+  | Crosshair
+  | Text
+  | VerticalText
+  | Alias
+  | Copy
+  | Move
+  | NoDrop
+  | NotAllowed
+  | EResize
+  | NResize
+  | NEResize
+  | NWResize
+  | SResize
+  | SEResize
+  | SWResize
+  | WResize
+  | EWResize
+  | NSResize
+  | NESWResize
+  | NWSEResize
+  | ColResize
+  | RowResize
+  | AllScroll
+  | ZoomIn
+  | ZoomOut
+  | Grab
+  | Grabbing;
+
+let cursor = v =>
+  stringStyle(
+    "cursor",
+    switch (v) {
+    | Auto => "auto"
+    | Default => "default"
+    | None => "none"
+    | ContextMenu => "context-menu"
+    | Help => "help"
+    | Pointer => "pointer"
+    | Progress => "progress"
+    | Wait => "wait"
+    | Cell => "cell"
+    | Crosshair => "crosshair"
+    | Text => "text"
+    | VerticalText => "vertical-text"
+    | Alias => "alias"
+    | Copy => "copy"
+    | Move => "move"
+    | NoDrop => "no-drop"
+    | NotAllowed => "not-allowed"
+    | EResize => "e-resize"
+    | NResize => "n-resize"
+    | NEResize => "ne-resize"
+    | NWResize => "nw-resize"
+    | SResize => "s-resize"
+    | SEResize => "se-resize"
+    | SWResize => "sw-resize"
+    | WResize => "w-resize"
+    | EWResize => "ew-resize"
+    | NSResize => "ns-resize"
+    | NESWResize => "nesw-resize"
+    | NWSEResize => "nwse-resize"
+    | ColResize => "col-resize"
+    | RowResize => "row-resize"
+    | AllScroll => "all-scroll"
+    | ZoomIn => "zoom-in"
+    | ZoomOut => "zoom-out"
+    | Grab => "grab"
+    | Grabbing => "grabbing"
+    },
+  );
