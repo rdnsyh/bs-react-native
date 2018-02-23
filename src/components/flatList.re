@@ -2,8 +2,7 @@
 external view : ReasonReact.reactClass = "FlatList";
 
 [@bs.send]
-external _scrollToEnd :
-  (ReasonReact.reactRef, {. "animated": bool}) => unit =
+external _scrollToEnd : (ReasonReact.reactRef, {. "animated": bool}) => unit =
   "scrollToEnd";
 
 let scrollToEnd = (ref, ~animated) =>
@@ -186,8 +185,7 @@ let make =
             fromOption(UtilsRN.optBoolToOptJsBoolean(horizontal)),
           "initialNumToRender": fromOption(initialNumToRender),
           "initialScrollIndex": fromOption(initialScrollIndex),
-          "inverted":
-            fromOption(UtilsRN.optBoolToOptJsBoolean(inverted)),
+          "inverted": fromOption(UtilsRN.optBoolToOptJsBoolean(inverted)),
           "keyExtractor": keyExtractor,
           "numColumns": fromOption(numColumns),
           "onEndReached": fromOption(onEndReached),

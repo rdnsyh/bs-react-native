@@ -398,6 +398,12 @@ type resizeMode =
   | Repeat
   | Center;
 
+let resizeMode: resizeMode => styleElement;
+
+let tintColor: string_interpolated => styleElement;
+
+let overlayColor: string_interpolated => styleElement;
+
 type listStyleType =
   | Disc
   | Circle
@@ -412,13 +418,21 @@ type listStyleType =
   | Unset
   | Custom(string);
 
-let resizeMode: resizeMode => styleElement;
+type listStylePosition =
+  | Inside
+  | Outside
+  | Inherit
+  | Initial
+  | Unset;
 
-let tintColor: string_interpolated => styleElement;
-
-let overlayColor: string_interpolated => styleElement;
-
-let listStyleType: listStyleType => styleElement;
+let listStyle:
+  (
+    ~type_: listStyleType,
+    ~image: string=?,
+    ~position: listStylePosition=?,
+    unit
+  ) =>
+  styleElement;
 
 type cursor =
   | Auto
