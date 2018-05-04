@@ -45,6 +45,8 @@ let serialize = (handlers: option(Types.touchResponderHandlers)) =>
 
 let extendView =
     (
+      ~onMouseEnter=?,
+      ~onMouseLeave=?,
       ~accessibilityLabel=?,
       ~accessible=?,
       ~hitSlop=?,
@@ -70,6 +72,8 @@ let extendView =
   UtilsRN.objAssign2(
     Js.Undefined.(
       {
+        "onMouseEnter": fromOption(onMouseEnter),
+        "onMouseLeave": fromOption(onMouseLeave),
         "accessibilityLabel": fromOption(accessibilityLabel),
         "accessible": fromOption(UtilsRN.optBoolToOptJsBoolean(accessible)),
         "hitSlop": fromOption(hitSlop),

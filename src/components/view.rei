@@ -1,6 +1,8 @@
 module type ViewComponent = {
   let make:
     (
+      ~onMouseEnter: ReactEventRe.Mouse.t => unit=?,
+      ~onMouseLeave: ReactEventRe.Mouse.t => unit=?,
       ~accessibilityLabel: string=?,
       ~accessible: bool=?,
       ~hitSlop: Types.insets=?,
