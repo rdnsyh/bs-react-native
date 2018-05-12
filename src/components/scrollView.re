@@ -83,7 +83,7 @@ module type ScrollViewComponent = {
       ~indicatorStyle: [ | `default | `black | `white]=?,
       ~maximumZoomScale: float=?,
       ~minimumZoomScale: float=?,
-      ~onScrollAnimationEnd: unit => unit=?,
+      /* ~onScrollAnimationEnd: unit => unit=?, */
       ~scrollEventThrottle: int=?,
       ~scrollIndicatorInsets: Types.insets=?,
       ~scrollsToTop: bool=?,
@@ -172,7 +172,7 @@ module CreateComponent = (Impl: View.Impl) : ScrollViewComponent => {
         ~indicatorStyle=?,
         ~maximumZoomScale=?,
         ~minimumZoomScale=?,
-        ~onScrollAnimationEnd=?,
+        /* ~onScrollAnimationEnd=?, */
         ~scrollEventThrottle=?,
         ~scrollIndicatorInsets=?,
         ~scrollsToTop=?,
@@ -304,7 +304,7 @@ module CreateComponent = (Impl: View.Impl) : ScrollViewComponent => {
                 ),
               "maximumZoomScale": fromOption(maximumZoomScale),
               "minimumZoomScale": fromOption(minimumZoomScale),
-              "onScrollAnimationEnd": fromOption(onScrollAnimationEnd),
+              /* "onScrollAnimationEnd": fromOption(onScrollAnimationEnd), */
               "scrollEventThrottle": fromOption(scrollEventThrottle),
               "scrollIndicatorInsets": fromOption(scrollIndicatorInsets),
               "scrollsToTop":

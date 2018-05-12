@@ -6,12 +6,14 @@ module Text: Text.TextComponent;
 
 module ScrollView: {
   let onScrollUpdater:
-    (~x: 'a=?, ~y: 'b=?, ~native: bool=?, unit, RNEvent.NativeScrollEvent.t) => unit;
+    (~x: 'a=?, ~y: 'b=?, ~native: bool=?, unit, RNEvent.NativeScrollEvent.t) =>
+    unit;
   type point = {
     x: float,
-    y: float
+    y: float,
   };
-  let scrollTo: (ReasonReact.reactRef, ~x: int, ~y: int, ~animated: bool) => unit;
+  let scrollTo:
+    (ReasonReact.reactRef, ~x: int, ~y: int, ~animated: bool) => unit;
   let scrollToEnd: (ReasonReact.reactRef, ~animated: bool) => unit;
   let make:
     (
@@ -35,7 +37,8 @@ module ScrollView: {
                                      =?,
       ~accessibilityLiveRegion: [ | `assertive | `none | `polite]=?,
       ~collapsable: bool=?,
-      ~importantForAccessibility: [ | `auto | `no | `noHideDescendants | `yes]=?,
+      ~importantForAccessibility: [ | `auto | `no | `noHideDescendants | `yes]
+                                    =?,
       ~needsOffscreenAlphaCompositing: bool=?,
       ~renderToHardwareTextureAndroid: bool=?,
       ~accessibilityTraits: list(
@@ -57,7 +60,7 @@ module ScrollView: {
                                 | `startsMedia
                                 | `summary
                                 | `text
-                              ]
+                              ],
                             )
                               =?,
       ~accessibilityViewIsModal: bool=?,
@@ -89,7 +92,7 @@ module ScrollView: {
       ~indicatorStyle: [ | `black | `default | `white]=?,
       ~maximumZoomScale: float=?,
       ~minimumZoomScale: float=?,
-      ~onScrollAnimationEnd: unit => unit=?,
+      /* ~onScrollAnimationEnd: unit => unit=?, */
       ~scrollEventThrottle: int=?,
       ~scrollIndicatorInsets: Types.insets=?,
       ~scrollsToTop: bool=?,
@@ -97,5 +100,9 @@ module ScrollView: {
       ~zoomScale: float=?,
       array(ReasonReact.reactElement)
     ) =>
-    ReasonReact.component(ReasonReact.stateless, ReasonReact.noRetainedProps, unit);
+    ReasonReact.component(
+      ReasonReact.stateless,
+      ReasonReact.noRetainedProps,
+      unit,
+    );
 };
