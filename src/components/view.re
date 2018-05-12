@@ -2,8 +2,6 @@ module type ViewComponent = {
   let make:
     /* This is additional props for react native web only */
     (
-      ~onMouseEnter: ReactEventRe.Mouse.t => unit=?,
-      ~onMouseLeave: ReactEventRe.Mouse.t => unit=?,
       ~accessibilityLabel: string=?,
       ~accessible: bool=?,
       ~hitSlop: Types.insets=?,
@@ -66,8 +64,6 @@ module type Impl = {let view: ReasonReact.reactClass;};
 module CreateComponent = (Impl: Impl) : ViewComponent => {
   let make =
       (
-        ~onMouseEnter=?,
-        ~onMouseLeave=?,
         ~accessibilityLabel=?,
         ~accessible=?,
         ~hitSlop=?,
@@ -93,8 +89,6 @@ module CreateComponent = (Impl: Impl) : ViewComponent => {
       ~reactClass=Impl.view,
       ~props=
         Props.extendView(
-          ~onMouseEnter?,
-          ~onMouseLeave?,
           ~accessibilityLabel?,
           ~accessible?,
           ~hitSlop?,
