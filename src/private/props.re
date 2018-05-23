@@ -47,6 +47,8 @@ let extendView =
     (
       ~onMouseEnter=?,
       ~onMouseLeave=?,
+      ~className=?,
+      ~onBlur=?,
       ~accessibilityLabel=?,
       ~accessible=?,
       ~hitSlop=?,
@@ -74,6 +76,8 @@ let extendView =
       {
         "onMouseEnter": fromOption(onMouseEnter),
         "onMouseLeave": fromOption(onMouseLeave),
+        "onBlur": fromOption(onBlur),
+        "className": fromOption(className),
         "accessibilityLabel": fromOption(accessibilityLabel),
         "accessible": fromOption(UtilsRN.optBoolToOptJsBoolean(accessible)),
         "hitSlop": fromOption(hitSlop),

@@ -4,6 +4,8 @@ module type ViewComponent = {
     (
       ~onMouseEnter: ReactEventRe.Mouse.t => unit=?,
       ~onMouseLeave: ReactEventRe.Mouse.t => unit=?,
+      ~className: string=?,
+      ~onBlur: ReactEventRe.Mouse.t => unit=?,
       ~accessibilityLabel: string=?,
       ~accessible: bool=?,
       ~hitSlop: Types.insets=?,
@@ -68,6 +70,8 @@ module CreateComponent = (Impl: Impl) : ViewComponent => {
       (
         ~onMouseEnter=?,
         ~onMouseLeave=?,
+        ~className=?,
+        ~onBlur=?,
         ~accessibilityLabel=?,
         ~accessible=?,
         ~hitSlop=?,
@@ -95,6 +99,8 @@ module CreateComponent = (Impl: Impl) : ViewComponent => {
         Props.extendView(
           ~onMouseEnter?,
           ~onMouseLeave?,
+          ~onBlur?,
+          ~className?,
           ~accessibilityLabel?,
           ~accessible?,
           ~hitSlop?,

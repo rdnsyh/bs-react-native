@@ -3,6 +3,8 @@ module type ViewComponent = {
     (
       ~onMouseEnter: ReactEventRe.Mouse.t => unit=?,
       ~onMouseLeave: ReactEventRe.Mouse.t => unit=?,
+      ~className: string=?,
+      ~onBlur: ReactEventRe.Mouse.t => unit=?,
       ~accessibilityLabel: string=?,
       ~accessible: bool=?,
       ~hitSlop: Types.insets=?,
